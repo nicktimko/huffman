@@ -1,0 +1,38 @@
+sudo: false
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "nightly"
+
+env:
+  - INSTALL_WHEEL=0
+  - INSTALL_WHEEL=1
+
+matrix:
+  fast_finish: true
+  allow_failures:
+  - python: "3.6"
+  - python: "nightly"
+
+before_install:
+  - pip install --requirement dev-requirements.txt
+  - invoke build
+
+install:
+  - invoke install
+
+before_script:
+  - invoke clean
+  - rm -rf huffman* setup.py # eliminate any way to import the source
+
+script:
+  - invoke test --coverage
+
+after_success:
+  - codecov

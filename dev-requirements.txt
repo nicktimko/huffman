@@ -1,0 +1,9 @@
+codecov
+coverage
+invoke
+nose
+pathlib
+pip>=8.1.2
+six
+twine
+wheel
