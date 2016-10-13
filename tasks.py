@@ -21,7 +21,7 @@ def clean(ctx):
 
     for t in rm_targets:
         try:
-            print('removing {}...'.format(t), end=' ')
+            print('removing {0}...'.format(t), end=' ')
             shutil.rmtree(os.path.join(ROOT, t))
             print('OK.')
         except OSError as e:
