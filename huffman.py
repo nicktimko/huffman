@@ -14,7 +14,7 @@ class Node:
         self.weight = left.weight + right.weight
 
     def __repr__(self):
-        return '<Node with weight {}>'.format(self.weight)
+        return '<Node with weight {0}>'.format(self.weight)
 
     def __lt__(self, other):
         return self.weight < other.weight
@@ -27,8 +27,9 @@ class Leaf(Node):
         self.weight = weight
 
     def __repr__(self):
-        return "<Leaf '{}' with weight {}, code '{}'>".format(self.symbol, self.weight, self.code())
+        return "<Leaf '{0}' with weight {1}, code '{2}'>".format(self.symbol, self.weight, self.code)
 
+    @property
     def code(self):
         code = ''
         n = self
@@ -49,7 +50,8 @@ class Tree:
             heapq.heappush(q, Node(heapq.heappop(q), heapq.heappop(q)))
 
         self.root = q[0]
-        self.codebook = {l.symbol: l.code() for l in leaves}
+        # self.codebook = {l.symbol: l.code for l in leaves} # py2.6 fail
+        self.codebook = dict((l.symbol, l.code) for l in leaves)
 
 
 def codebook(symbolweights):
