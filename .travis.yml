@@ -21,6 +21,7 @@ matrix:
 
 before_install:
   - pip install --requirement dev-requirements.txt
+  - "[[ $TRAVIS_PYTHON_VERSION == '2.6' ]] && curl -O https://raw.githubusercontent.com/python/cpython/2.7/Lib/collections.py"
   - invoke build
 
 install:
