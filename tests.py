@@ -1,7 +1,10 @@
 from __future__ import print_function
 
 import sys
-import collections
+if sys.version_info >= (2, 7):
+    from collections import Counter
+else:
+    Counter = None
 
 import huffman
 
@@ -29,8 +32,15 @@ def test_basic():
 
     assertEqualDicts(output, expected)
 
+
 def test_counter():
-    output = huffman.codebook(sorted(collections.Counter('man the stand banana man').items()))
+    if Counter:
+        input = sorted(Counter('man the stand banana man').items())
+    else:
+        input = [(' ', 4), ('a', 6), ('b', 1), ('d', 1), ('e', 1),
+                 ('h', 1), ('m', 2), ('n', 5), ('s', 1), ('t', 2)]
+
+    output = huffman.codebook(input)
     expected = {
         ' ': '111',
         'a': '10',
