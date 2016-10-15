@@ -1,14 +1,15 @@
 from __future__ import print_function
 
 import sys
+import random
+import unittest
+
 if sys.version_info >= (2, 7):
     from collections import Counter
 else:
     Counter = None
     def next(i):
         return i.next()
-
-import random
 
 import huffman
 from huffman.heapqo import Heap
@@ -129,6 +130,9 @@ def test_heap_replace():
 
 
 def test_heap_complain_unorderable():
+    if sys.version_info < (3,):
+        raise unittest.SkipTest('Python 2 happily compares disparate types.')
+
     heap = Heap([1, 2, 3])
     try:
         heap.push([])
@@ -147,4 +151,4 @@ def test_heap_post_push_unorderable_not_broken():
     else:
         pass
 
-    heap.pop() # this should run fine and not see that list.
+    heap.pop() # this should run fine and not see that list or Python 2 won't care
