@@ -17,6 +17,5 @@ setup(
         'Programming Language :: Python :: 3',
     ],
     keywords='encoding huffman compression binary',
-    # packages=find_packages(),
-    py_modules=['huffman'],
+    packages=['huffman'],
 )

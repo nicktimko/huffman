@@ -4,6 +4,7 @@ import heapq
 
 __all__ = ['Heap']
 
+
 def _with_docstring(source):
     @functools.wraps(source)
     def _with_docstring_wrap(target):
