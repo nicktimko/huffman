@@ -1,9 +1,11 @@
-import heapq
+from __future__ import print_function, absolute_import
 
-__version__ = '0.1.0'
+from .heapqo import Heap
+
+__all__ = ['Node', 'Leaf', 'Tree', 'codebook']
 
 
-class Node:
+class Node(object):
     def __init__(self, left, right):
         self.parent = None
         left.parent = right.parent = self
@@ -40,16 +42,15 @@ class Leaf(Node):
         return code
 
 
-class Tree:
+class Tree(object):
     def __init__(self, symbolweights):
         leaves = [Leaf(*sw) for sw in symbolweights]
-        q = leaves[:]
-        heapq.heapify(q)
+        heap = Heap(leaves[:])
 
-        while len(q) > 1:
-            heapq.heappush(q, Node(heapq.heappop(q), heapq.heappop(q)))
+        while len(heap) >= 2:
+            heap.push(Node(heap.pop(), heap.pop()))
 
-        self.root = q[0]
+        self.root = heap.pop()
         # self.codebook = {l.symbol: l.code for l in leaves} # py2.6 fail
         self.codebook = dict((l.symbol, l.code) for l in leaves)
 
