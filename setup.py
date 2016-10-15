@@ -5,6 +5,7 @@ setup(
     name='huffman',
     version=huffman.__version__,
     description='Generate Huffman codebooks',
+    long_description=open('README.rst').read(),
     url='https://github.com/nicktimko/huffman',
 
     author='Nick Timkovich',

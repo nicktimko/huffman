@@ -27,7 +27,7 @@ class Heap(object):
             if self.heap:
                 item < self.heap[0] < item
         except TypeError:
-            raise ValueError("can't order new item type ({0}) with existing type ({1})"
+            raise ValueError("can't order new item type ({}) with existing type ({})"
                              .format(type(item).__name__, type(self.heap[0]).__name__))
 
     @_with_docstring(heapq.heappush)

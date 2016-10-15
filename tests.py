@@ -27,7 +27,7 @@ def assertEqualDicts(a, b):
         print('First dictionary has extra items not in second (+) or missing from second (-)', file=sys.stderr)
         for sign, items in [('+', excess_a), ('-', excess_b)]:
             for item in sorted(items):
-                print('({0}) {1}'.format(sign, item), file=sys.stderr)
+                print('({}) {}'.format(sign, item), file=sys.stderr)
 
         raise AssertionError('Dictionaries dissimilar')
 

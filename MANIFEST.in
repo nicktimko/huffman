@@ -1,0 +1,5 @@
+recursive-include huffman *.py
+include README.rst
+include LICENSE.md
+include setup.py
+include tests.py
