@@ -55,12 +55,12 @@ def test(ctx, coverage=False):
 
     if coverage:
         ctx.run('coverage xml')
+        ctx.run('coverage html')
 
 
 @task
 def report(ctx):
     import webbrowser
-    ctx.run('coverage html')
     webbrowser.open_new_tab(fileurl(os.path.join(ROOT, 'coverage_html_report', 'index.html')))
 
 

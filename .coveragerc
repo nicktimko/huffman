@@ -1,7 +1,7 @@
 [run]
 branch = True
 source =
-    multiworm/*
+    huffman/*
 
 [report]
 # Regexes for lines to exclude from consideration
