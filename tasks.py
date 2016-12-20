@@ -47,7 +47,7 @@ def install(ctx):
 
 @task
 def test(ctx, coverage=False):
-    cmd = 'nosetests'
+    cmd = 'nosetests huffman'
     if coverage:
         cmd += ' --with-coverage --cover-erase --cover-package=huffman'
 
