@@ -7,7 +7,7 @@ Provided an iterable of 2-tuples in ``(symbol, weight)`` format, generate a Huff
 
 ::
 
-    >>> huffman.codebook([('A', 2), ('B', 4), ('C', 1), ('D', 1))]
+    >>> huffman.codebook([('A', 2), ('B', 4), ('C', 1), ('D', 1)])
     {'A': '10', 'B': '0', 'C': '110', 'D': '111'}
 
 If you have an iterable of symbols, the ``collections.Counter`` is a handy way to tally them up.
