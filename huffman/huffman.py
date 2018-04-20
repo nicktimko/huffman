@@ -60,7 +60,7 @@ def codebook(symbolweights):
     Huffman codebook, returned as a dictionary in {symbol: code} format.
 
     Examples:
-    >>> huffman.codebook([('A', 2), ('B', 4), ('C', 1), ('D', 1))
+    >>> huffman.codebook([('A', 2), ('B', 4), ('C', 1), ('D', 1)])
     {'A': '10', 'B': '0', 'C': '110', 'D': '111'}
 
     >>> huffman.codebook(collections.Counter('man the stand banana man').items())
