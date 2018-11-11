@@ -10,7 +10,6 @@ from .util import is_sorted, popper
 
 
 class TestHeapPopAlwaysSorted(unittest.TestCase):
-
     def test_heap_pops_always_sorted(self):
         for _ in range(500):
             nums = [random.randrange(10) for _ in range(random.randrange(1, 10))]
@@ -43,18 +42,17 @@ class TestHeapPopAlwaysSorted(unittest.TestCase):
 
 
 class TestHeapOrderableItems(unittest.TestCase):
-
     def test_heap_complain_unorderable(self):
         if sys.version_info < (3,):
-            raise unittest.SkipTest('Python 2 happily compares disparate types.')
+            raise unittest.SkipTest("Python 2 happily compares disparate types.")
 
         heap = Heap([1, 2, 3])
         try:
             heap.push([])
         except ValueError as e:
-            self.assertIn('order', str(e))
+            self.assertIn("order", str(e))
         else:
-            self.fail('allowed insertion of unorderable type')
+            self.fail("allowed insertion of unorderable type")
 
     def test_heap_post_push_unorderable_not_broken(self):
         heap = Heap([1, 2, 3])
@@ -66,4 +64,4 @@ class TestHeapOrderableItems(unittest.TestCase):
             pass
 
         for x in popper(heap):
-            pass # this should run fine and not see that list or Python 2 won't care
+            pass  # this should run fine and not see that list or Python 2 won't care

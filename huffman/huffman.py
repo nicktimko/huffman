@@ -2,7 +2,7 @@ from __future__ import print_function, absolute_import
 
 from .heapqo import Heap
 
-__all__ = ['Node', 'Leaf', 'Tree', 'codebook']
+__all__ = ["Node", "Leaf", "Tree", "codebook"]
 
 
 class Node(object):
@@ -16,7 +16,7 @@ class Node(object):
         self.weight = left.weight + right.weight
 
     def __repr__(self):
-        return '<Node with weight {}>'.format(self.weight)
+        return "<Node with weight {}>".format(self.weight)
 
     def __lt__(self, other):
         return self.weight < other.weight
@@ -29,14 +29,16 @@ class Leaf(Node):
         self.weight = weight
 
     def __repr__(self):
-        return "<Leaf '{}' with weight {}, code '{}'>".format(self.symbol, self.weight, self.code)
+        return "<Leaf '{}' with weight {}, code '{}'>".format(
+            self.symbol, self.weight, self.code
+        )
 
     @property
     def code(self):
-        code = ''
+        code = ""
         n = self
         while n.parent is not None:
-            codebit = '0' if n is n.parent.left else '1'
+            codebit = "0" if n is n.parent.left else "1"
             code = codebit + code
             n = n.parent
         return code
@@ -55,7 +57,7 @@ class Tree(object):
 
 
 def codebook(symbolweights):
-    '''
+    """
     Provided an iterable of 2-tuples in (symbol, weight) format, generate a
     Huffman codebook, returned as a dictionary in {symbol: code} format.
 
@@ -74,5 +76,5 @@ def codebook(symbolweights):
      'n': '00',
      's': '11011',
      't': '0111'}
-    '''
+    """
     return Tree(symbolweights).codebook

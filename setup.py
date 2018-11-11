@@ -2,21 +2,19 @@ from setuptools import setup
 import huffman
 
 setup(
-    name='huffman',
+    name="huffman",
     version=huffman.__version__,
-    description='Generate Huffman codebooks',
-    long_description=open('README.rst').read(),
-    url='https://github.com/nicktimko/huffman',
-
-    author='Nick Timkovich',
-    author_email='npt@u.northwestern.edu',
-
-    license='MIT',
+    description="Generate Huffman codebooks",
+    long_description=open("README.rst").read(),
+    url="https://github.com/nicktimko/huffman",
+    author="Nick Timkovich",
+    author_email="nick.timkovich@gmail.com",
+    license="MIT",
     classifiers=[
-        'Development Status :: 3 - Alpha',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3',
+        "Development Status :: 3 - Alpha",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
     ],
-    keywords='encoding huffman compression binary',
-    packages=['huffman'],
+    keywords="encoding huffman compression binary",
+    packages=["huffman"],
 )
