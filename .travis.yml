@@ -6,6 +6,8 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
+  - "3.7-dev"
+  - "3.8-dev"
   - "nightly"
 
 env:
@@ -15,7 +17,7 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-  - python: "3.6"
+  - python: "3.8-dev"
   - python: "nightly"
 
 before_install:
@@ -27,7 +29,7 @@ install:
 
 before_script:
   - invoke clean
-  - rm -rf huffman* setup.py # eliminate any way to import the source
+  - rm -rf huffman* setup.py  # eliminate any way to import the source
 
 script:
   - invoke test --coverage
