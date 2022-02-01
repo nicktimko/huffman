@@ -15,16 +15,16 @@ If you have an iterable of symbols, the ``collections.Counter`` is a handy way t
 ::
 
     >>> huffman.codebook(collections.Counter('man the stand banana man').items())
-    {' ': '111',
-     'a': '10',
-     'b': '0100',
-     'd': '0110',
-     'e': '11010',
-     'h': '0101',
-     'm': '1100',
-     'n': '00',
-     's': '11011',
-     't': '0111'}
+    {' ': '111', 
+    'a': '10', 
+    'b': '0101', 
+    'd': '0110', 
+    'e': '11000', 
+    'h': '0100', 
+    'm': '0111', 
+    'n': '00', 
+    's': '11001', 
+    't': '1101'}
 
 
 .. _Huffman codes: https://en.wikipedia.org/wiki/Huffman_coding
